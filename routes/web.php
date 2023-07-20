@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 // user route start
 Route::get('/home', [HomeController::class,'redirect']);
 Route::get('/', [HomeController::class,'index']);
+Route::get('/doctor', [HomeController::class,'doctor']);
+Route::post('/appointment', [HomeController::class,'appointment']);
 
 // user route end
 
@@ -45,9 +47,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/about', function () {
     return view('user.about');
 });
-Route::get('/doctor', function () {
-    return view('user.doctor');
-});
+// Route::get('/doctor', function () {
+//     return view('user.doctor');
+// });
 Route::get('/news', function () {
     return view('user.news');
 });

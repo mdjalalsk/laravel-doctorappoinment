@@ -1,6 +1,14 @@
 @extends('layouts.templete')
 
 @section('content')
+@if (session()->has('message'))
+
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss='alert'>x</button>
+  {{session()->get('message')}}
+</div>
+    
+@endif
     <div class="page-hero bg-image overlay-dark" style="background-image: url({{ asset('assets/img/bg_image_1.jpg') }});">
         <div class="hero-section">
             <div class="container text-center wow zoomIn">
@@ -71,30 +79,13 @@
             <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
 
             <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
-                  {{-- start dynamic value  --}}
-									@foreach ($doctors as $doctor)
-                <div class="item">
-                    <div class="card-doctor">
-                        <div class="header">
-                            <img height="200px" src="doctorimage/{{$doctor->image  }}" alt="">
-                            <div class="meta">
-                                <a href="#"><span class="mai-call"></span></a>
-                                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                            </div>
-                        </div>
-                        <div class="body">
-                            <p class="text-xl mb-0">{{$doctor->name}}</p>
-                            <span class="text-sm text-grey">{{ $doctor->speciality }}</span>
-                        </div>
-                    </div>
-                </div>
-               
-								@endforeach
-                 {{-- start dynamic value  --}}
+
+                @include('user.doctorslist')
+                
             </div>
         </div>
     </div>
-		{{-- end pagination  --}}
+    {{-- end pagination  --}}
 
     <div class="page-section bg-light">
         <div class="container">
@@ -184,53 +175,7 @@
         </div>
     </div> <!-- .page-section -->
 
-    <div class="page-section">
-        <div class="container">
-            <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
+    @include('user.appointment')
 
-            <form class="main-form">
-                <div class="row mt-5 ">
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <input type="text" class="form-control" placeholder="Full name">
-                    </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                        <input type="text" class="form-control" placeholder="Email address..">
-                    </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <input type="number" class="form-control" placeholder="Phone Number">
-                    </div>
-                    {{-- Add extra field for doctor name start --}}
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                        <select name="doctorname" id="doctorname" class="custom-select">
-                            <option value="general">Doctor Name</option>
-                            <option value="cardiology">MD Mohim</option>
-                            <option value="dental">Md Jalal S K</option>
-                            <option value="neurology">Ismail</option>
-                            <option value="orthopaedics">Orthopaedics</option>
-                        </select>
-                    </div>
-
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                        <input type="date" class="form-control">
-                    </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                        <select name="departement" id="departement" class="custom-select">
-                            <option value="general">General Health</option>
-                            <option value="cardiology">Cardiology</option>
-                            <option value="dental">Dental</option>
-                            <option value="neurology">Neurology</option>
-                            <option value="orthopaedics">Orthopaedics</option>
-                        </select>
-                    </div>
-
-                    <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
-                    </div>
-
-                </div>
-
-                <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Submit Request</button>
-            </form>
-        </div>
-    </div>
+   
 @endsection
