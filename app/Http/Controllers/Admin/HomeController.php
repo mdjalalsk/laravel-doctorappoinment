@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function redirect()
     {
         if (Auth::id()) {
-            if (Auth::user()->role == '1') {
+            if (Auth::user()->role == '2') {
                 return view('admin.home');
             } else {
                 $doctors = Doctor::all();
@@ -34,6 +34,13 @@ class HomeController extends Controller
             return view('user.home', compact('doctors'));
         }
     }
+    // single page doctor show
+    public function show($id){
+        $doctor = Doctor::find($id);
+        return view('user.singale', compact('doctor'));
+
+    }
+    // single page doctor show
 
     public function doctor()
     {

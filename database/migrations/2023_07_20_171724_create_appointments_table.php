@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('doctor_name')->nullable();
-            $table->string('speciality')->nullable();
+            $table->text('doctor_name')->nullable();
+            $table->text('speciality')->nullable();
             $table->string('date')->nullable();
-            $table->string('message')->nullable();
+            $table->text('message')->nullable();
             $table->string('status')->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();

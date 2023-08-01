@@ -9,15 +9,46 @@
 <hr>
 <!DOCTYPE html>
 <html lang="en">
+    <base href="/public">
 
 <head>
     @include('admin.css')
     <style>
-        table, th, td {
+        /* table, th, td {
     border: 2px rgb(43, 31, 31) solid;
     padding: 2px;
-  }
-      </style>
+  } */
+  table {
+        
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        margin-right: 5px;
+        text-align: center;
+        border: 1px solid black;
+        word-wrap: break-word; /* Allow long content to wrap within cells */
+    }
+
+    th {
+        background-color: black;
+        color: white;
+    }
+
+    td{
+        max-height: 100px; /* Set the maximum height of the td */
+        overflow: hidden; /* Hide the overflow of the content */
+        white-space:wrap; /* Prevent text from wrapping */
+        text-overflow:ellipsis; /* Display ellipsis (...) for truncated text */
+    }
+
+    .doctor-image {
+        max-height: 100px;
+        max-width: 100px;
+    }
+</style>
+     
 </head>
 
 <body>
@@ -59,7 +90,7 @@
                     </tr>
 
                     @foreach ($doctor as $d)
-                        <tr style="background-color:grey; text-align:center; padding:0px 10px  ">
+                        <tr style="background-color:grey; text-align:center; padding:0px 10px;   ">
                             <td>{{ $d->name }}</td>
                             {{-- <td>{{ $d->email }}</td> --}}
                             <td>{{ $d->phone }}</td>
@@ -67,7 +98,7 @@
                             <td>{{ $d->speciality }}</td>
                             <td>{{ $d->room_number }}</td>
                             <td>{{ $d->institute }}</td>
-                            <td>{{ $d->achievement }}</td>
+                            <td >{{ $d->achievement }}</td>
                             <td>
                                 <img src="{{ asset('doctorimage/' . $d->image) }}" height="100px" alt="">
                             </td>

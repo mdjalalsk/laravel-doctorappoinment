@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <base href="/public">
 
 <head>
     <style type="text/css ">
@@ -49,7 +50,13 @@
                             <label for="">Phone Number:</label>
                             <input type="text" style="color: black;" name="phone" placeholder="Write Phone Number">
                         </div>
+                        {{-- drop down --}}
                         <div style="padding: 15px;">
+                            <label for="">Speciality:</label>
+                            <input type="text" name="speciality"  id="speciality" style="color: black; width:200px;">
+                           
+                        </div>
+                        {{-- <div style="padding: 15px;">
                             <label for="">Speciality:</label>
                             <select name="speciality" id="speciality" style="color: black; width:200px;">
                                 <option value="-1">Select</option>
@@ -58,7 +65,7 @@
                                 <option value="eye">Eye</option>
                                 <option value="nose">Nose</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div style="padding: 15px;">
                             <label for="">Room Number:</label>
                             <input type="text" style="color: black;" name="room_number"

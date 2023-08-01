@@ -27,9 +27,15 @@
                     
                 </div>
 
-                <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                {{-- <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
                     <input name="date" type="date" class="form-control">
+                </div> --}}
+                <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                    <input name="date" type="date" class="form-control" min="{{date('Y-m-d') }}">
                 </div>
+
+
+
                 <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
 									<select name="doctor_name" id="doctorname" class="custom-select">
 										<option value="-1">Select</option>

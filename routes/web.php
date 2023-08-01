@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', [HomeController::class, 'redirect'])->middleware('auth', 'verified');
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/doctor', [HomeController::class, 'doctor']);
+Route::get('/doctor-detailes/{id}', [HomeController::class, 'show']);
 // Route::get('/deleted/{id}', [HomeController::class,'Doctordeleted']);
 
 
@@ -76,7 +78,17 @@ Route::get('/approved/{id}', [AdminController::class, 'Approved']);
 Route::get('/canceled/{id}', [AdminController::class, 'Canceled']);
 Route::get('/emailview/{id}', [AdminController::class, 'emailview']);
 Route::post('/sendemail/{id}', [AdminController::class, 'sendemail']);
+Route::get('/patient-&-doctor-list', [AdminController::class, 'pation_doctor_list'])->name('pation_doctor_list');
 
 //Admin route end
+
+//User Controller routes
+Route::controller(UserController::class)->group(function(){
+    Route::get('/user-list','index')->name('user_list');
+    Route::get('/user-list-edit/{id}','user_edit')->name('user_edit');
+    Route::get('/user-list-delete/{id}','user_delete')->name('user_delete');
+    Route::post('/user-list-update/{id}','user_update')->name('user_update');
+});
+
 
 require __DIR__ . '/auth.php';

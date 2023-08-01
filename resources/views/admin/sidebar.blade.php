@@ -81,12 +81,20 @@
 			</a>
 		</li>
 		<li class="nav-item menu-items">
-			<a class="nav-link" href="">
+			<a class="nav-link" href="{{route('user_list')}}">
+				<span class="menu-icon">
+					<i class="mdi mdi-table-large"></i>
+				</span>
+				<span class="menu-title">All User list</span>
+			</a>
+		</li>
+		{{-- <li class="nav-item menu-items">
+			<a class="nav-link" href="{{route('pation_doctor_list')}}">
 				<span class="menu-icon">
 					<i class="mdi mdi-table-large"></i>
 				</span>
 				<span class="menu-title">All Patins list</span>
 			</a>
-		</li>
+		</li> --}}
 	</ul>
 </nav>
