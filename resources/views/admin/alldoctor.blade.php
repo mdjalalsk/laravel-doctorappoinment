@@ -18,35 +18,39 @@
     border: 2px rgb(43, 31, 31) solid;
     padding: 2px;
   } */
-  table {
-        
-        border-collapse: collapse;
-    }
+  
+        table {
+            border-collapse: collapse;
+            width:100%;
+        }
 
-    th, td {
-        padding: 10px;
-        margin-right: 5px;
-        text-align: center;
-        border: 1px solid black;
-        word-wrap: break-word; /* Allow long content to wrap within cells */
-    }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
 
-    th {
-        background-color: black;
-        color: white;
-    }
+        th {
+            background-color: #101011;
+        }
 
-    td{
-        max-height: 100px; /* Set the maximum height of the td */
-        overflow: hidden; /* Hide the overflow of the content */
-        white-space:wrap; /* Prevent text from wrapping */
-        text-overflow:ellipsis; /* Display ellipsis (...) for truncated text */
-    }
+        /* Text wrapping with word break */
+        td {
+            word-wrap: break-word;
+        }
+        td img{
+            height: 50px !important;
+            max-width: 100%;
+        }
 
-    .doctor-image {
-        max-height: 100px;
-        max-width: 100px;
-    }
+        /* Ellipsis for long data */
+        .ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 50px; /* Adjust the value based on your layout */
+        }
+ 
 </style>
      
 </head>
@@ -97,10 +101,10 @@
 
                             <td>{{ $d->speciality }}</td>
                             <td>{{ $d->room_number }}</td>
-                            <td>{{ $d->institute }}</td>
-                            <td >{{ $d->achievement }}</td>
+                            <td class="ellipsis">{{ $d->institute }}</td>
+                            <td class="ellipsis" >{{ $d->achievement }}</td>
                             <td>
-                                <img src="{{ asset('doctorimage/' . $d->image) }}" height="100px" alt="">
+                                <img src="{{ asset('doctorimage/' . $d->image) }}" alt="">
                             </td>
 
                             <td>

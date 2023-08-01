@@ -28,19 +28,21 @@
                             {{-- Show  Dynamic information start  --}}
                             <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
 															
-                                <div class="card-doctor">
+                                <div class="card-doctor" style="height:390px">
 																	
                                     <div class="header">
-                                        <img class="width:200px;" src="doctorimage/{{$doctor->image}} " alt="">
+                                        <img class="width:280px;" src="doctorimage/{{$doctor->image}} " alt="">
                                         <div class="meta">
                                             <a href="#"><span class="mai-call"></span></a>
                                             <a href="#"><span class="mai-logo-whatsapp"></span></a>
                                         </div>
                                     </div>
-                                    <div class="body">
+                                    <a href="{{url('/doctor-detailes',$doctor->id )}}">
+                                    <div class="body mb-2">
                                         <p class="text-xl mb-0">{{$doctor->name}}</p>
                                         <span class="text-sm text-grey">{{$doctor->speciality}}</span>
                                     </div>
+                                    </a>
 																		
                                 </div>
 															

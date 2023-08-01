@@ -7,18 +7,18 @@
 <div class="container">
 <div class="row">
 	<div class="col-4">
-		<img src="{{asset('doctorimage/'. $doctor->image)}}" alt="doctor image" height="200px" width="200px">
+		<img src="{{asset('doctorimage/'. $doctor->image)}}" alt="doctor image" height="250px" width="250px">
 	</div>
 	<div class="col-7 mt-3">
-		<h3>Doctor Name : {{$doctor->name}}</h3>
-		<ul>
-			<li>Speciality :{{$doctor->speciality}}</li>
-			<li>Room Number :{{$doctor->room_number}}</li>
-			<li>Achievement :{{$doctor->achievement}}</li>
-			<li>Institute :{{$doctor->institute}}</li>
-		</ul>
-		<p>Doctor Details : <br>{{$doctor->doctor_details}}</p>
-		<p></p>
+		<h2 class="my-3" style="color: rgb(9, 170, 167)" >Doctor Name : {{$doctor->name}}</h2>
+	    <h4 class="my-3" style="color: rgb(67, 70, 70)">Speciality : {{$doctor->speciality}}</h4>
+		
+			<h4 class="my-3" style="color: rgb(120, 120, 120)">Achievement : {{$doctor->achievement}}</h4>
+			<p style="color: rgb(93, 154, 155)">Institute : {{$doctor->institute}}</p>
+		
+		<p class="mb-2">Doctor Details :</p>
+		<p>{{$doctor->doctor_details}}</p>
+		
 	</div>
 </div>
 </div>
